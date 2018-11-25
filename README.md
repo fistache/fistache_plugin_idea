@@ -1,1 +1,2 @@
-# seafood_plugin_idea
+# Seafood framework plugin
+

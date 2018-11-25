@@ -1,0 +1,18 @@
+<idea-plugin>
+    <name>Seafood framework plugin</name>
+    <id>seafood.framework</id>
+    <version>0.1.0</version>
+    <description>Support for Seafood framework.</description>
+    <vendor url="https://seafood.io"/>
+    <category>Custom Languages</category>
+
+    <depends>JavaScript</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileTypeFactory implementation="seafood.component.SeafoodFileTypeFactory" />
+        <lang.parserDefinition language="Seafood" implementationClass="seafood.component.language.SeafoodParserDefinition" />
+        <lang.parserDefinition language="SeafoodTemplate" implementationClass="seafood.component.language.SeafoodTemplateParserDefinition" />
+        <lang.syntaxHighlighterFactory language="Seafood" implementationClass="seafood.component.language.SeafoodSyntaxHighlighterFactory" />
+    </extensions>
+</idea-plugin>

@@ -14,7 +14,7 @@ class SeafoodFileType : LanguageFileType(SeafoodLanguage.INSTANCE) {
     }
 
     override fun getDescription(): String {
-        return "Script, template and style describe your component."
+        return "Seafood component"
     }
 
     override fun getDefaultExtension(): String {

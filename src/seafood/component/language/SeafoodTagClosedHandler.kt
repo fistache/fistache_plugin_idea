@@ -2,6 +2,7 @@ package seafood.component.language
 
 import com.intellij.lexer.BaseHtmlLexer
 import com.intellij.lexer.Lexer
+import seafood.component.parse.SeafoodHandledLexer
 
 class SeafoodTagClosedHandler : BaseHtmlLexer.TokenHandler{
     override fun handleElement(lexer: Lexer?) {

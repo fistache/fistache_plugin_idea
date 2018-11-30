@@ -1,4 +1,4 @@
-package seafood.component.language
+package seafood.component.parse
 
 import com.intellij.lang.ecmascript6.parsing.ES6ExpressionParser
 import com.intellij.lang.ecmascript6.parsing.ES6FunctionParser
@@ -9,6 +9,7 @@ import com.intellij.psi.tree.IElementType
 import com.intellij.lang.PsiBuilder
 import com.intellij.lang.javascript.*
 import com.intellij.lang.javascript.parsing.JavaScriptParser
+import seafood.component.language.SeafoodElementTypes
 
 class SeafoodTemplateParser(builder: PsiBuilder) : ES6Parser<ES6ExpressionParser<*>, ES6StatementParser<*>, ES6FunctionParser<*>, JSPsiTypeParser<JavaScriptParser<*, *, *, *>>>(builder) {
     init {

@@ -1,11 +1,10 @@
-package seafood.component.language
+package seafood.component.parse
 
 import com.intellij.lang.PsiBuilder
 import com.intellij.lang.PsiParser
 import com.intellij.lang.html.HTMLParser
 import com.intellij.lang.html.HTMLParserDefinition
 import com.intellij.lang.html.HtmlParsing
-import com.intellij.lang.javascript.settings.JSRootConfiguration
 import com.intellij.lexer.Lexer
 import com.intellij.openapi.project.Project
 import com.intellij.psi.FileViewProvider

@@ -4,8 +4,9 @@ import com.intellij.lang.PsiBuilder
 import com.intellij.lang.javascript.*
 import com.intellij.lang.javascript.parsing.JavaScriptParser
 import seafood.component.SeafoodFileType
+import seafood.component.parse.SeafoodTemplateParser
 
-class SeafoodTemplateLanguage : JSLanguageDialect("SeafoodTemplate", DialectOptionHolder.ECMA_6, JavaScriptSupportLoader.ECMA_SCRIPT_6) {
+class SeafoodTemplateLanguage : JSLanguageDialect("SeafoodTemplate", DialectOptionHolder.TS, JavaScriptSupportLoader.TYPESCRIPT) {
     override fun getFileExtension(): String {
         return SeafoodFileType.DEFAULT_EXTENSION
     }

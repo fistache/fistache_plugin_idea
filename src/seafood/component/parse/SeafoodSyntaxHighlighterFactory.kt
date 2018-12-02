@@ -9,7 +9,6 @@ import com.intellij.openapi.vfs.VirtualFile
 
 class SeafoodSyntaxHighlighterFactory : SyntaxHighlighterFactory() {
     override fun getSyntaxHighlighter(project: Project?, virtualFile: VirtualFile?): SyntaxHighlighter {
-        if (project == null) return createHighlighter(SeafoodHighlightingLexer())
         return createHighlighter(SeafoodHighlightingLexer())
     }
 

@@ -5,31 +5,29 @@ import com.intellij.lang.Language
 import com.intellij.lang.typescript.TypeScriptContentProvider
 
 interface SeafoodHandledLexer {
-    fun seenScript():Boolean
-    fun setSeenScript()
-    fun setSeenScriptType()
-    fun seenTemplate(): Boolean
-    fun setSeenTemplate(template: Boolean)
-    fun seenStyle():Boolean
-    fun setSeenStyleType()
-    fun seenTag():Boolean
-    fun setSeenTag(tag:Boolean)
-    fun inTagState():Boolean
-    fun seenAttribute():Boolean
-    fun setSeenAttribute(attribute:Boolean)
-    fun seenSeafoodAttribute(): Boolean
-    fun setSeenSeafoodAttribute(value: Boolean)
-    fun getScriptType(): String?
-    fun getStyleType(): String?
+    /**
+     * <script> tag
+     */
+    fun getScriptTagContentProvider(): HtmlScriptContentProvider? = TypeScriptContentProvider()
 
-    fun styleViaLang(default: Language?): Language? = styleViaLang(default, getStyleType())
+    /**
+     * <style> tag
+     */
+    fun hasSeenStyleTag(): Boolean
+    // "lang" attribute
+    fun hasSeenStyleTagLangAttribute()
+    fun getStyleTagLangAttributeValue(): String?
+    fun getStyleTagLanguage(default: Language?): Language? = SeafoodHandledLexer.getStyleTagLanguage(default, getStyleTagLangAttributeValue())
 
-    fun findScriptContentProviderSeafood(): HtmlScriptContentProvider? {
-        return object: TypeScriptContentProvider() {}
-    }
+    /**
+     * <script>, <template> and <style> tags
+     */
+    fun hasSeenAnyTag(): Boolean
+    fun setSeenAnyTag(tag: Boolean)
+    fun isInTagState(): Boolean
 
     companion object {
-        fun styleViaLang(default: Language?, style: String?): Language? {
+        fun getStyleTagLanguage(default: Language?, style: String?): Language? {
             if (default != null && style != null) {
                 default.dialects
                         .filter { style.equals(it.id, ignoreCase = true) }

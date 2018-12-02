@@ -12,8 +12,6 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="seafood.component.SeafoodFileTypeFactory" />
         <lang.parserDefinition language="Seafood" implementationClass="seafood.component.parse.SeafoodParserDefinition" />
-        <lang.parserDefinition language="Seafood" implementationClass="seafood.component.parse.SeafoodScriptParserDefinition"/>
-        <lang.parserDefinition language="SeafoodTemplate" implementationClass="seafood.component.parse.SeafoodTemplateParserDefinition" />
         <lang.syntaxHighlighterFactory language="Seafood" implementationClass="seafood.component.parse.SeafoodSyntaxHighlighterFactory" />
     </extensions>
 </idea-plugin>

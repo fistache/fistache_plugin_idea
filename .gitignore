@@ -5,6 +5,8 @@
 .gradle
 .sandbox
 
+gradle.properties
+
 .idea/workspace.xml
 .idea/modules.xml
 .idea/misc.xml

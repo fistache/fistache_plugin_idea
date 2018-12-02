@@ -42,9 +42,7 @@ intellij {
     downloadSources Boolean.valueOf(downloadSources)
 
     pluginName name
-//    plugins = ['JavaScriptLanguage', 'CSS']
-    plugins = ['JavaScriptLanguage', 'CSS', 'com.jetbrains.php.blade:182.3911.19', 'com.jetbrains.php:182.4505.42']
-
+    plugins = ['JavaScriptLanguage', 'CSS']
     sandboxDirectory = project.rootDir.canonicalPath + "/.sandbox"
 
     patchPluginXml {

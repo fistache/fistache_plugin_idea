@@ -14,4 +14,7 @@
         <lang.parserDefinition language="Seafood" implementationClass="seafood.component.parse.SeafoodParserDefinition" />
         <lang.syntaxHighlighterFactory language="Seafood" implementationClass="seafood.component.parse.SeafoodSyntaxHighlighterFactory" />
     </extensions>
+    <extensions defaultExtensionNs="JavaScript">
+        <elementScopeProvider implementation="seafood.component.SeafoodElementResolveScopeProvider" />
+    </extensions>
 </idea-plugin>

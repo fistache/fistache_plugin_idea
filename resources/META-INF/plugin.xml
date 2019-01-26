@@ -12,9 +12,13 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="seafood.component.SeafoodFileTypeFactory" />
         <lang.parserDefinition language="Seafood" implementationClass="seafood.component.parse.SeafoodParserDefinition" />
+        <lang.parserDefinition language="SeafoodInjection" implementationClass="seafood.component.parse.SeafoodInjectionParserDefinition" />
         <lang.syntaxHighlighterFactory language="Seafood" implementationClass="seafood.component.parse.SeafoodSyntaxHighlighterFactory" />
+        <stubElementTypeHolder class="seafood.component.parse.SeafoodElementTypes" />
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
+        <indexedFileTypeProvider implementation="seafood.component.SeafoodIndexedFileTypeProvider"/>
         <elementScopeProvider implementation="seafood.component.SeafoodElementResolveScopeProvider" />
+        <dialectSpecificHandlersFactory language="SeafoodInjection" implementationClass="seafood.component.parse.SeafoodInjectionSpecificHandlersFactory"/>
     </extensions>
 </idea-plugin>

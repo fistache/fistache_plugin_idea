@@ -4,12 +4,12 @@ import com.intellij.lexer.BaseHtmlLexer
 import com.intellij.lexer.Lexer
 import seafood.component.parse.SeafoodHandledLexer
 
-class SeafoodAttributeExpression : BaseHtmlLexer.TokenHandler{
+class SeafoodAttributeExpressionHandler : BaseHtmlLexer.TokenHandler{
     override fun handleElement(lexer: Lexer?) {
         val handled = lexer as SeafoodHandledLexer
-        if (!handled.hasSeenAnyTag()) {
+        if (!handled.seenTag()) {
             val text = lexer.tokenText
-            handled.setSeenAnyTag(text.startsWith(":") || text.startsWith("@") || text.startsWith("v-"))
+            handled.setSeenAttributeExpression(text.startsWith(":") || text.startsWith("@"))
         }
     }
 }

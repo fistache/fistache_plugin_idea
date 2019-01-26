@@ -1,4 +1,6 @@
-package seafood.component
+package seafood.component.parse
 
-class SeafoodInjectionSpecificHandlersFactory {
-}
+import com.intellij.lang.javascript.JavaScriptSpecificHandlersFactory
+
+// todo: implement
+class SeafoodInjectionSpecificHandlersFactory: JavaScriptSpecificHandlersFactory()

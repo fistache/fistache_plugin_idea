@@ -1,10 +1,8 @@
 /* It's an automatically generated code. Do not modify it. */
-package seafood.component.parse.lexer;
+package seafood.component.syntax.lexer;
 
 import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.*;
 import com.intellij.psi.xml.*;
-import com.intellij.lexer.FlexLexer;
 
 %%
 

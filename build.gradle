@@ -42,7 +42,7 @@ intellij {
     downloadSources Boolean.valueOf(downloadSources)
 
     pluginName name
-    plugins = ['JavaScriptLanguage', 'CSS']
+    plugins = ['JavaScriptLanguage', 'CSS', 'JavaScriptDebugger']
     sandboxDirectory = project.rootDir.canonicalPath + "/.sandbox"
 
     patchPluginXml {

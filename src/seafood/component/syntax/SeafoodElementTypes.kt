@@ -28,7 +28,7 @@ object SeafoodElementTypes {
         override fun createCompositeNode(): ASTNode = SeafoodForExpression(this)
     }
 
-    val FOR_VARIABLE: JSVariableElementType = object : JSVariableElementType("V_FOR_VARIABLE") {
+    val FOR_VARIABLE: JSVariableElementType = object : JSVariableElementType("FOR_VARIABLE") {
         override fun construct(node: ASTNode?): PsiElement? {
             return SeafoodForVariable(node)
         }

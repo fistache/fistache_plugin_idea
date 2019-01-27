@@ -1,4 +1,4 @@
-package seafood.component.parse
+package seafood.component.syntax
 
 import com.intellij.lang.PsiBuilder
 import com.intellij.lang.ecmascript6.parsing.ES6ExpressionParser
@@ -35,31 +35,31 @@ class SeafoodInjectionLanguage: JSLanguageDialect("SeafoodInjection", DialectOpt
         }
 
         private fun parseForContents(): Boolean {
-            val vForExpr = builder.mark()
+            val forExpr = builder.mark()
             if (builder.tokenType == JSTokenTypes.LPAR) {
                 if(!parseForVariables()) {
-                    vForExpr.rollbackTo()
+                    forExpr.rollbackTo()
                     return false
                 }
             } else if (isIdentifierToken(builder.tokenType)) {
                 val statement = builder.mark()
-                buildTokenElement(JSStubElementTypes.VARIABLE)
+                buildTokenElement(SeafoodElementTypes.FOR_VARIABLE)
                 statement.done(JSStubElementTypes.VAR_STATEMENT)
             } else {
                 builder.error("identifier(s) expected")
                 builder.advanceLexer()
             }
             if (builder.tokenType !== JSTokenTypes.IN_KEYWORD && builder.tokenType !== JSTokenTypes.OF_KEYWORD) {
-                vForExpr.rollbackTo()
+                forExpr.rollbackTo()
                 return false
             } else {
                 builder.advanceLexer()
             }
             if (parseExpectedExpression(builder, true)) {
-                vForExpr.done(SeafoodElementTypes.FOR_EXPRESSION)
+                forExpr.done(SeafoodElementTypes.FOR_EXPRESSION)
             }
             else {
-                vForExpr.rollbackTo()
+                forExpr.rollbackTo()
                 return false
             }
             return true
@@ -71,7 +71,7 @@ class SeafoodInjectionLanguage: JSLanguageDialect("SeafoodInjection", DialectOpt
             val varStatement = builder.mark()
             var cnt = 3
             while (isIdentifierToken(builder.tokenType) && cnt > 0) {
-                buildTokenElement(JSStubElementTypes.VARIABLE)
+                buildTokenElement(SeafoodElementTypes.FOR_VARIABLE)
                 --cnt
                 if (cnt == 0 || builder.tokenType != JSTokenTypes.COMMA) break
                 else {

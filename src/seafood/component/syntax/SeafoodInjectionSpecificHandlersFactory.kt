@@ -1,4 +1,4 @@
-package seafood.component.parse
+package seafood.component.syntax
 
 import com.intellij.lang.javascript.JavaScriptSpecificHandlersFactory
 

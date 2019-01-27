@@ -11,14 +11,17 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="seafood.component.SeafoodFileTypeFactory" />
-        <lang.parserDefinition language="Seafood" implementationClass="seafood.component.parse.SeafoodParserDefinition" />
-        <lang.parserDefinition language="SeafoodInjection" implementationClass="seafood.component.parse.SeafoodInjectionParserDefinition" />
-        <lang.syntaxHighlighterFactory language="Seafood" implementationClass="seafood.component.parse.SeafoodSyntaxHighlighterFactory" />
-        <stubElementTypeHolder class="seafood.component.parse.SeafoodElementTypes" />
+        <lang.parserDefinition language="Seafood" implementationClass="seafood.component.syntax.SeafoodParserDefinition" />
+        <lang.parserDefinition language="SeafoodInjection" implementationClass="seafood.component.syntax.SeafoodInjectionParserDefinition" />
+        <lang.syntaxHighlighterFactory language="Seafood" implementationClass="seafood.component.syntax.SeafoodSyntaxHighlighterFactory" />
+        <stubElementTypeHolder class="seafood.component.syntax.SeafoodElementTypes" />
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
-        <indexedFileTypeProvider implementation="seafood.component.SeafoodIndexedFileTypeProvider"/>
         <elementScopeProvider implementation="seafood.component.SeafoodElementResolveScopeProvider" />
-        <dialectSpecificHandlersFactory language="SeafoodInjection" implementationClass="seafood.component.parse.SeafoodInjectionSpecificHandlersFactory"/>
+        <indexedFileTypeProvider implementation="seafood.component.SeafoodIndexedFileTypeProvider"/>
+        <inheritedLanguagesConfigurableProvider language="SeafoodInjection"
+                                                implementationClass="seafood.component.syntax.SeafoodInjectionLanguageConfigurableProvider"/>
+        <dialectSpecificHandlersFactory language="SeafoodInjection" implementationClass="seafood.component.syntax.SeafoodInjectionSpecificHandlersFactory"/>
+        <tsImportResolver implementation="seafood.component.dependencies.SeafoodTypeScriptImportsResolverProvider" order="first"/>
     </extensions>
 </idea-plugin>

@@ -32,7 +32,7 @@ import java.util.*
 
 class SeafoodInjector : MultiHostInjector {
     companion object {
-        private val delimitersOptionHolders = setOf("Vue.config.delimiters", "Vue.options.delimiters")
+        private val delimitersOptionHolders = setOf("Seafood.config.delimiters", "Seafood.options.delimiters")
 
         val BRACES_FACTORY: NullableFunction<PsiElement, Pair<String, String>> = JSInjectionBracesUtil.delimitersFactory(
                 SeafoodInjectionLanguage.INSTANCE.displayName) { project, key ->
@@ -80,21 +80,20 @@ class SeafoodInjector : MultiHostInjector {
         if (fileType != HtmlFileType.INSTANCE && fileType != SeafoodFileType.INSTANCE) return
 
         // this supposed to work in <template lang="jade"> attribute values
-        if (context is XmlAttributeValueImpl && !context.value.isNullOrBlank() && context.parent is XmlAttribute
+//        if (context is XmlAttributeValueImpl && !context.value.isNullOrBlank() && context.parent is XmlAttribute
 //                && SeafoodAttributesProvider.isInjectJS((context.parent as XmlAttribute).name)) {
-                ) {
-            val embedded = PsiTreeUtil.getChildOfType(context, JSEmbeddedContent::class.java)
-            if (embedded != null && SeafoodInjectionLanguage.INSTANCE != embedded.language) {
-                val literal = PsiTreeUtil.getChildOfType(embedded, JSLiteralExpressionImpl::class.java)
-                if (literal != null) {
-                    injectInElement(literal, registrar)
-                    return
-                }
-            }
-            else if (embedded == null) {
-                injectInElement(context, registrar)
-            }
-        }
+//            val embedded = PsiTreeUtil.getChildOfType(context, JSEmbeddedContent::class.java)
+//            if (embedded != null && SeafoodInjectionLanguage.INSTANCE != embedded.language) {
+//                val literal = PsiTreeUtil.getChildOfType(embedded, JSLiteralExpressionImpl::class.java)
+//                if (literal != null) {
+//                    injectInElement(literal, registrar)
+//                    return
+//                }
+//            }
+//            else if (embedded == null) {
+//                injectInElement(context, registrar)
+//            }
+//        }
 
         if (context is XmlTextImpl || context is XmlAttributeValueImpl) {
             val braces = BRACES_FACTORY.`fun`(context) ?: return

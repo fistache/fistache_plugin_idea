@@ -12,12 +12,18 @@
     <extensions defaultExtensionNs="com.intellij">
         <css.embeddedCssProvider implementation="seafood.component.codeInsight.SeafoodEmbeddedCssProvider"/>
         <css.inclusionContext implementation="seafood.component.codeInsight.SeafoodCssInclusionContext"/>
+
         <fileTypeFactory implementation="seafood.component.SeafoodFileTypeFactory" />
         <lang.parserDefinition language="Seafood" implementationClass="seafood.component.syntax.SeafoodParserDefinition" />
         <lang.parserDefinition language="SeafoodInjection" implementationClass="seafood.component.syntax.SeafoodInjectionParserDefinition" />
         <lang.syntaxHighlighterFactory language="Seafood" implementationClass="seafood.component.syntax.SeafoodSyntaxHighlighterFactory" />
+
         <stubElementTypeHolder class="seafood.component.syntax.SeafoodElementTypes" />
-        <!--<typedHandler implementation="seafood.component.codeInsight.SeafoodInjectionBracesInterpolationTypedHandler"/>-->
+        <typedHandler implementation="seafood.component.codeInsight.SeafoodInjectionBracesInterpolationTypedHandler"/>
+        <lang.braceMatcher language="SeafoodInjection" implementationClass="com.intellij.lang.javascript.highlighting.JSBraceMatcher"/>
+        <psi.referenceContributor language="Seafood" implementation="seafood.component.codeInsight.SeafoodReferenceContributor"/>
+
+        <multiHostInjector implementation="seafood.component.syntax.SeafoodInjector" id="seafood"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <elementScopeProvider implementation="seafood.component.SeafoodElementResolveScopeProvider" />

@@ -9,7 +9,6 @@ import com.intellij.lang.javascript.psi.impl.JSChangeUtil
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.codeStyle.CodeEditUtil
 
-// todo: remove if useless
 class SeafoodInjectionLanguageConfigurableProvider : JSInheritedLanguagesConfigurableProvider() {
     override fun isNeedToBeTerminated(element: PsiElement): Boolean = false
 

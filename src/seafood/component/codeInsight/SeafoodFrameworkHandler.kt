@@ -49,7 +49,7 @@ fun findModule(element: PsiElement?): JSEmbeddedContent? {
                 val children = greenStub.getChildrenByType<JSElement>(JSExtendedLanguagesTokenSetProvider.MODULE_EMBEDDED_CONTENTS,
                         JSEmbeddedContent.ARRAY_FACTORY)
                 val result = children.firstOrNull()
-                return if (result is JSEmbeddedContent) result else null
+                return result as? JSEmbeddedContent
             }
         }
         val script = findScriptTag(file)

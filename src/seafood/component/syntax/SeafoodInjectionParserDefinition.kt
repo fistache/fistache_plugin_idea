@@ -1,6 +1,7 @@
 package seafood.component.syntax
 
 import com.intellij.lang.PsiParser
+import com.intellij.lang.javascript.DialectOptionHolder
 import com.intellij.lang.javascript.JSFlexAdapter
 import com.intellij.lang.javascript.JavascriptParserDefinition
 import com.intellij.lang.javascript.settings.JSRootConfiguration
@@ -20,7 +21,7 @@ class SeafoodInjectionParserDefinition : JavascriptParserDefinition() {
     }
 
     override fun createLexer(project: Project?): Lexer {
-        return JSFlexAdapter(JSRootConfiguration.getInstance(project).languageLevel.dialect.optionHolder)
+        return JSFlexAdapter(DialectOptionHolder.TS)
     }
 
     override fun getFileNodeType(): IFileElementType {

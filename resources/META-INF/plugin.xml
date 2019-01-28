@@ -17,12 +17,13 @@
         <lang.parserDefinition language="SeafoodInjection" implementationClass="seafood.component.syntax.SeafoodInjectionParserDefinition" />
         <lang.syntaxHighlighterFactory language="Seafood" implementationClass="seafood.component.syntax.SeafoodSyntaxHighlighterFactory" />
         <stubElementTypeHolder class="seafood.component.syntax.SeafoodElementTypes" />
+        <!--<typedHandler implementation="seafood.component.codeInsight.SeafoodInjectionBracesInterpolationTypedHandler"/>-->
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <elementScopeProvider implementation="seafood.component.SeafoodElementResolveScopeProvider" />
         <indexedFileTypeProvider implementation="seafood.component.SeafoodIndexedFileTypeProvider"/>
-        <inheritedLanguagesConfigurableProvider language="SeafoodInjection"
-                                                implementationClass="seafood.component.syntax.SeafoodInjectionLanguageConfigurableProvider"/>
+        <!--<inheritedLanguagesConfigurableProvider language="SeafoodInjection"-->
+                                                <!--implementationClass="seafood.component.syntax.SeafoodInjectionLanguageConfigurableProvider"/>-->
         <dialectSpecificHandlersFactory language="SeafoodInjection" implementationClass="seafood.component.syntax.SeafoodInjectionSpecificHandlersFactory"/>
         <tsImportResolver implementation="seafood.component.dependencies.SeafoodTypeScriptImportsResolverProvider" order="first"/>
     </extensions>

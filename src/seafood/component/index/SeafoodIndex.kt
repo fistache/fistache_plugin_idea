@@ -22,6 +22,8 @@ import seafood.component.index.SeafoodIndexBase.Companion.createJSKey
 
 const val SEAFOOD: String = "seafood"
 const val GLOBAL_BINDING_MARK: String = "*"
+private const val INDEXED_ACCESS_HINT = "[]"
+const val DELIMITER = "#"
 
 fun resolve(name:String, scope:GlobalSearchScope, key:StubIndexKey<String, JSImplicitElementProvider>): Collection<JSImplicitElement>? {
     if (DumbService.isDumb(scope.project!!)) return null
@@ -70,6 +72,20 @@ fun hasSeafood(project: Project): Boolean {
 }
 
 private fun normalizeNameForIndex(name: String) = fromAsset(name.substringBeforeLast(GLOBAL_BINDING_MARK))
+
+fun getSeafoodIndexData(element : JSImplicitElement): SeafoodIndexData {
+    val typeStr = element.typeString ?: return SeafoodIndexData(element.name, null, null, false, false)
+    val originalName = typeStr.substringAfterLast(DELIMITER)
+    val s = typeStr.substringBeforeLast(DELIMITER)
+    val parts = s.split(DELIMITER)
+    assert (parts.size == 3)
+
+    val isGlobal = "1" == parts[0]
+    val nameRef = parts[1]
+    val descriptor = parts[2].substringBefore(INDEXED_ACCESS_HINT)
+    val isIndexed = parts[2].endsWith(INDEXED_ACCESS_HINT)
+    return SeafoodIndexData(originalName, nameRef, descriptor, isIndexed, isGlobal)
+}
 
 class SeafoodIndexData(val originalName: String,
                    val nameRef: String?, val descriptorRef: String?, val groupRegistration: Boolean, val isGlobal: Boolean) {

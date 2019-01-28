@@ -64,7 +64,7 @@ fun getTextIfLiteral(holder: PsiElement?): String? {
 
 fun detectLanguage(tag: XmlTag?): String? = tag?.getAttribute("lang")?.value?.trim()
 
-fun detectVueScriptLanguage(file: PsiFile): String? {
+fun detectSeafoodScriptLanguage(file: PsiFile): String? {
     val xmlFile = file as? XmlFile ?: return null
     val scriptTag = findScriptTag(xmlFile) ?: return null
     return detectLanguage(scriptTag)

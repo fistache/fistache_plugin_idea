@@ -27,7 +27,7 @@ class SeafoodInjectionLanguage: JSLanguageDialect("SeafoodInjection", DialectOpt
         init {
             myStatementParser = object: ES6StatementParser<SeafoodInjectionParser>(this) {
                 override fun parseSourceElement() {
-                    if (builder.currentOffset != 0 || !parseExpectedExpression(builder, false)) {
+                    if (!parseExpectedExpression(builder, false)) {
                         super.parseSourceElement()
                     }
                 }
@@ -36,6 +36,12 @@ class SeafoodInjectionLanguage: JSLanguageDialect("SeafoodInjection", DialectOpt
 
         private fun parseForContents(): Boolean {
             val forExpr = builder.mark()
+            if (builder.tokenType !== JSTokenTypes.LET_KEYWORD && builder.tokenType !== JSTokenTypes.CONST_KEYWORD) {
+                forExpr.rollbackTo()
+                return false
+            } else {
+                builder.advanceLexer()
+            }
             if (builder.tokenType == JSTokenTypes.LPAR) {
                 if(!parseForVariables()) {
                     forExpr.rollbackTo()

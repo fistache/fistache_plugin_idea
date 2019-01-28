@@ -42,13 +42,7 @@ object SeafoodElementTypes {
 abstract class SeafoodInjectionCompositeElementType(debugName: String) : IElementType(debugName, SeafoodInjectionLanguage.INSTANCE), ICompositeElementType
 
 class SeafoodForExpression(elementType: IElementType) : JSExpressionImpl(elementType) {
-    fun getVarStatement(): JSVarStatement? {
-        if (firstChild is JSVarStatement) return firstChild as JSVarStatement
-        if (firstChild is JSParenthesizedExpression) {
-            return PsiTreeUtil.findChildOfType(firstChild, JSVarStatement::class.java)
-        }
-        return null
-    }
+    fun getVarStatement(): JSVarStatement? = children.firstOrNull { it is JSVarStatement } as JSVarStatement
     fun getReferenceExpression(): PsiElement? = children.firstOrNull { it is JSReferenceExpression }
 }
 

@@ -5,7 +5,7 @@ import com.intellij.lang.javascript.psi.stubs.impl.JSImplicitElementImpl
 import com.intellij.psi.stubs.StringStubIndexExtension
 import com.intellij.psi.stubs.StubIndexKey
 
-class SeafoodIndexBase(private val key: StubIndexKey<String, JSImplicitElementProvider>,
+abstract class SeafoodIndexBase(private val key: StubIndexKey<String, JSImplicitElementProvider>,
                        jsKey: String) : StringStubIndexExtension<JSImplicitElementProvider>() {
     private val VERSION = 25
 

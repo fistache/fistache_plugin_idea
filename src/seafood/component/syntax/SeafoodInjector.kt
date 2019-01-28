@@ -79,22 +79,6 @@ class SeafoodInjector : MultiHostInjector {
         val fileType = context.containingFile?.originalFile?.virtualFile?.fileType
         if (fileType != HtmlFileType.INSTANCE && fileType != SeafoodFileType.INSTANCE) return
 
-        // this supposed to work in <template lang="jade"> attribute values
-//        if (context is XmlAttributeValueImpl && !context.value.isNullOrBlank() && context.parent is XmlAttribute
-//                && SeafoodAttributesProvider.isInjectJS((context.parent as XmlAttribute).name)) {
-//            val embedded = PsiTreeUtil.getChildOfType(context, JSEmbeddedContent::class.java)
-//            if (embedded != null && SeafoodInjectionLanguage.INSTANCE != embedded.language) {
-//                val literal = PsiTreeUtil.getChildOfType(embedded, JSLiteralExpressionImpl::class.java)
-//                if (literal != null) {
-//                    injectInElement(literal, registrar)
-//                    return
-//                }
-//            }
-//            else if (embedded == null) {
-//                injectInElement(context, registrar)
-//            }
-//        }
-
         if (context is XmlTextImpl || context is XmlAttributeValueImpl) {
             val braces = BRACES_FACTORY.`fun`(context) ?: return
             injectInXmlTextByDelimiters(registrar, context, SeafoodInjectionLanguage.INSTANCE, braces.getFirst(), braces.getSecond())

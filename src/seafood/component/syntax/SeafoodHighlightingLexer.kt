@@ -18,7 +18,6 @@ class SeafoodHighlightingLexer : HtmlHighlightingLexer(MergingLexerAdapter(FlexA
     init {
         registerHandler(XmlTokenType.XML_NAME, SeafoodLangAttributeHandler())
         registerHandler(XmlTokenType.XML_NAME, SeafoodTagOpenHandler())
-        registerHandler(XmlTokenType.XML_NAME, SeafoodAttributeExpressionHandler())
         registerHandler(XmlTokenType.XML_ATTRIBUTE_VALUE_START_DELIMITER, SeafoodAttributeStartDelimiterHandler())
 
         val scriptCleaner = SeafoodTemplateCleaner()

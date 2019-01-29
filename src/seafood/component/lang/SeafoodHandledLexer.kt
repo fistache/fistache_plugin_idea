@@ -1,4 +1,4 @@
-package seafood.component.syntax
+package seafood.component.lang
 
 import com.intellij.lang.HtmlScriptContentProvider
 import com.intellij.lang.Language

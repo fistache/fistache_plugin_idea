@@ -1,5 +1,5 @@
 /* It's an automatically generated code. Do not modify it. */
-package seafood.component.syntax.lexer;
+package seafood.component.lang.lexer;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
@@ -112,13 +112,6 @@ CONDITIONAL_COMMENT_CONDITION=({ALPHA})({ALPHA}|{WHITE_SPACE_CHARS}|{DIGIT}|"."|
 
 <TAG_ATTRIBUTES> {ATTRIBUTE_NAME} { return XmlTokenType.XML_NAME; }
 <TAG_ATTRIBUTES> "=" { yybegin(ATTRIBUTE_VALUE_START); return XmlTokenType.XML_EQ; }
-<TAG_ATTRIBUTES> "{" { yybegin(ATTRIBUTE_VALUE_EXPRESSION); return SeafoodTokenType.XML_ATTRIBUTE_SINGLE_EXPRESSION_START; }
-
-<ATTRIBUTE_VALUE_EXPRESSION> {
-    "}" { yybegin(TAG_ATTRIBUTES); return SeafoodTokenType.XML_ATTRIBUTE_SINGLE_EXPRESSION_END; }
-    \\\$ { return SeafoodTokenType.XML_ATTRIBUTE_SINGLE_EXPRESSION_VALUE; }
-    [^] { return SeafoodTokenType.XML_ATTRIBUTE_SINGLE_EXPRESSION_VALUE;}
-}
 
 <BEFORE_TAG_ATTRIBUTES, TAG_ATTRIBUTES, START_TAG_NAME, END_TAG_NAME> [^] { yybegin(YYINITIAL); yypushback(1); break; }
 

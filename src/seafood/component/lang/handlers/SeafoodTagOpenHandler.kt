@@ -1,8 +1,8 @@
-package seafood.component.syntax.handlers
+package seafood.component.lang.handlers
 
 import com.intellij.lexer.BaseHtmlLexer
 import com.intellij.lexer.Lexer
-import seafood.component.syntax.SeafoodHandledLexer
+import seafood.component.lang.SeafoodHandledLexer
 
 class SeafoodTagOpenHandler: BaseHtmlLexer.TokenHandler {
     companion object {

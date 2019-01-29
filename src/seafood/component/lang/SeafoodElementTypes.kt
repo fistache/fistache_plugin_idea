@@ -1,8 +1,7 @@
-package seafood.component.syntax
+package seafood.component.lang
 
 import com.intellij.lang.ASTNode
 import com.intellij.lang.Language
-import com.intellij.lang.javascript.psi.JSParenthesizedExpression
 import com.intellij.lang.javascript.psi.JSReferenceExpression
 import com.intellij.lang.javascript.psi.JSVarStatement
 import com.intellij.lang.javascript.psi.JSVariable

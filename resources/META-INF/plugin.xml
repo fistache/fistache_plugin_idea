@@ -14,23 +14,23 @@
         <css.inclusionContext implementation="seafood.component.codeInsight.SeafoodCssInclusionContext"/>
 
         <fileTypeFactory implementation="seafood.component.SeafoodFileTypeFactory" />
-        <lang.parserDefinition language="Seafood" implementationClass="seafood.component.syntax.SeafoodParserDefinition" />
-        <lang.parserDefinition language="SeafoodInjection" implementationClass="seafood.component.syntax.SeafoodInjectionParserDefinition" />
-        <lang.syntaxHighlighterFactory language="Seafood" implementationClass="seafood.component.syntax.SeafoodSyntaxHighlighterFactory" />
+        <lang.parserDefinition language="Seafood" implementationClass="seafood.component.lang.SeafoodParserDefinition" />
+        <lang.parserDefinition language="SeafoodInjection" implementationClass="seafood.component.lang.SeafoodInjectionParserDefinition" />
+        <lang.syntaxHighlighterFactory language="Seafood" implementationClass="seafood.component.lang.SeafoodSyntaxHighlighterFactory" />
 
-        <stubElementTypeHolder class="seafood.component.syntax.SeafoodElementTypes" />
+        <stubElementTypeHolder class="seafood.component.lang.SeafoodElementTypes" />
         <typedHandler implementation="seafood.component.codeInsight.SeafoodInjectionBracesInterpolationTypedHandler"/>
         <lang.braceMatcher language="SeafoodInjection" implementationClass="com.intellij.lang.javascript.highlighting.JSBraceMatcher"/>
         <psi.referenceContributor language="Seafood" implementation="seafood.component.codeInsight.SeafoodReferenceContributor"/>
 
-        <multiHostInjector implementation="seafood.component.syntax.SeafoodInjector" id="seafood"/>
+        <multiHostInjector implementation="seafood.component.lang.SeafoodInjector" id="seafood"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
         <elementScopeProvider implementation="seafood.component.SeafoodElementResolveScopeProvider" />
         <indexedFileTypeProvider implementation="seafood.component.SeafoodIndexedFileTypeProvider"/>
         <!--<inheritedLanguagesConfigurableProvider language="SeafoodInjection"-->
-                                                <!--implementationClass="seafood.component.syntax.SeafoodInjectionLanguageConfigurableProvider"/>-->
-        <dialectSpecificHandlersFactory language="SeafoodInjection" implementationClass="seafood.component.syntax.SeafoodInjectionSpecificHandlersFactory"/>
+                                                <!--implementationClass="seafood.component.langeafoodInjectionLanguageConfigurableProvider"/>-->
+        <dialectSpecificHandlersFactory language="SeafoodInjection" implementationClass="seafood.component.lang.SeafoodInjectionSpecificHandlersFactory"/>
         <tsImportResolver implementation="seafood.component.dependencies.SeafoodTypeScriptImportsResolverProvider" order="first"/>
     </extensions>
 </idea-plugin>

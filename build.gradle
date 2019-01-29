@@ -12,7 +12,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.jetbrains.intellij' version '0.3.11'
+    id 'org.jetbrains.intellij' version '0.4.2'
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
@@ -42,11 +42,23 @@ intellij {
     downloadSources Boolean.valueOf(downloadSources)
 
     pluginName name
-    plugins = ['JavaScriptLanguage', 'CSS', 'JavaScriptDebugger']
-    sandboxDirectory = project.rootDir.canonicalPath + "/.sandbox"
+    plugins = [
+            'JavaScriptLanguage',
+            'CSS',
+            'JavaScriptDebugger',
+            "com.jetbrains.php:182.4505.42",
+            "com.jetbrains.php.blade:182.3911.19",
+    ]
+
+    prepareSandbox {
+        copy {
+            from System.getProperty("user.home")+'/.IdeaIC2018.2/config/plugins/'
+            into './build/idea-sandbox/plugins/'
+        }
+    }
 
     patchPluginXml {
-        sinceBuild null
+        sinceBuild '173'
         untilBuild null
     }
 }

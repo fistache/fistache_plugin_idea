@@ -1,10 +1,9 @@
-package seafood.component.syntax
+package seafood.component.lang
 
 import com.intellij.lang.PsiParser
 import com.intellij.lang.javascript.DialectOptionHolder
 import com.intellij.lang.javascript.JSFlexAdapter
 import com.intellij.lang.javascript.JavascriptParserDefinition
-import com.intellij.lang.javascript.settings.JSRootConfiguration
 import com.intellij.lang.javascript.types.JSFileElementType
 import com.intellij.lexer.Lexer
 import com.intellij.openapi.project.Project

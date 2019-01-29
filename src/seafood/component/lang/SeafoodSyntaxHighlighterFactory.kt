@@ -1,4 +1,4 @@
-package seafood.component.syntax
+package seafood.component.lang
 
 import com.intellij.ide.highlighter.HtmlFileHighlighter
 import com.intellij.lexer.Lexer

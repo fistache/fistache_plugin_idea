@@ -14,7 +14,7 @@ import com.intellij.psi.xml.XmlTag
 import com.intellij.util.NullableFunction
 import seafood.component.SeafoodFileType
 import seafood.component.index.hasSeafood
-import seafood.component.syntax.SeafoodInjector
+import seafood.component.lang.SeafoodInjector
 
 private val myBracesCompleter: JSInjectionBracesUtil.InterpolationBracesCompleter =
         SeafoodInterpolationBracesCompleter(SeafoodInjector.BRACES_FACTORY)

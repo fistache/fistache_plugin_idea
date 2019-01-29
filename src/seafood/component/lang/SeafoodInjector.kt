@@ -1,4 +1,4 @@
-package seafood.component.syntax
+package seafood.component.lang
 
 import com.intellij.ide.highlighter.HtmlFileType
 import com.intellij.lang.injection.MultiHostInjector
@@ -7,10 +7,8 @@ import com.intellij.lang.javascript.JSInjectionBracesUtil
 import com.intellij.lang.javascript.JSInjectionBracesUtil.injectInXmlTextByDelimiters
 import com.intellij.lang.javascript.index.JavaScriptIndex
 import com.intellij.lang.javascript.psi.JSDefinitionExpression
-import com.intellij.lang.javascript.psi.JSEmbeddedContent
 import com.intellij.lang.javascript.psi.JSLiteralExpression
 import com.intellij.lang.javascript.psi.JSObjectLiteralExpression
-import com.intellij.lang.javascript.psi.impl.JSLiteralExpressionImpl
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Pair
 import com.intellij.psi.ElementManipulators
@@ -21,7 +19,6 @@ import com.intellij.psi.impl.source.xml.XmlElementImpl
 import com.intellij.psi.impl.source.xml.XmlTextImpl
 import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.util.PsiTreeUtil
-import com.intellij.psi.xml.XmlAttribute
 import com.intellij.util.NullableFunction
 import seafood.component.SeafoodFileType
 import seafood.component.codeInsight.*

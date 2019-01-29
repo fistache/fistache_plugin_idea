@@ -1,4 +1,4 @@
-package seafood.component.syntax
+package seafood.component.lang
 
 import com.intellij.lang.PsiBuilder
 import com.intellij.lang.ecmascript6.parsing.ES6ExpressionParser

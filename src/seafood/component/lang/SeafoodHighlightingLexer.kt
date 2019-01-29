@@ -1,4 +1,4 @@
-package seafood.component.syntax
+package seafood.component.lang
 
 import com.intellij.lang.HtmlScriptContentProvider
 import com.intellij.lang.Language
@@ -6,8 +6,8 @@ import com.intellij.lexer.*
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.TokenSet
 import com.intellij.psi.xml.XmlTokenType
-import seafood.component.syntax.handlers.*
-import seafood.component.syntax.lexer._SeafoodLexer
+import seafood.component.lang.handlers.*
+import seafood.component.lang.lexer._SeafoodLexer
 
 class SeafoodHighlightingLexer : HtmlHighlightingLexer(MergingLexerAdapter(FlexAdapter(_SeafoodLexer()), TokenSet.create(XmlTokenType.XML_COMMENT_CHARACTERS, XmlTokenType.XML_WHITE_SPACE, XmlTokenType.XML_REAL_WHITE_SPACE,
         XmlTokenType.XML_ATTRIBUTE_VALUE_TOKEN, XmlTokenType.XML_DATA_CHARACTERS,

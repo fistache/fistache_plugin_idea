@@ -1,4 +1,4 @@
-package seafood.component.syntax
+package seafood.component.lang
 
 import com.intellij.lang.ASTFactory
 import com.intellij.lang.ASTNode

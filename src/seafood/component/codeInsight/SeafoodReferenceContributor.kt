@@ -7,7 +7,7 @@ import com.intellij.psi.css.resolve.CssReferenceProviderUtil
 import com.intellij.psi.xml.XmlAttribute
 import com.intellij.util.ProcessingContext
 import com.intellij.xml.util.HtmlUtil
-import seafood.component.syntax.SeafoodHandledLexer
+import seafood.component.lang.SeafoodHandledLexer
 
 class SeafoodReferenceContributor: PsiReferenceContributor() {
     companion object {

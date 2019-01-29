@@ -1,16 +1,17 @@
-package seafood.component.parse
+package seafood.component.lang.handlers
 
 import com.intellij.lexer.BaseHtmlLexer
 import com.intellij.lexer.Lexer
+import seafood.component.lang.SeafoodHandledLexer
 
 class SeafoodLangAttributeHandler : BaseHtmlLexer.TokenHandler {
     override fun handleElement(lexer: Lexer) {
         val handled = lexer as SeafoodHandledLexer
-        val seenStyle = handled.hasSeenStyleTag()
-        if (!handled.hasSeenAnyTag() && !handled.isInTagState()) {
+        val seenStyle = handled.seenStyle()
+        if (!handled.seenTag() && !handled.inTagState()) {
             if (seenStyle) {
                 if ("lang" == lexer.tokenText) {
-                    handled.hasSeenStyleTagLangAttribute()
+                    handled.seenStyle()
                 }
             }
         }

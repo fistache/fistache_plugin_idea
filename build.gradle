@@ -12,7 +12,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.jetbrains.intellij' version '0.3.11'
+    id 'org.jetbrains.intellij' version '0.4.2'
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
@@ -34,7 +34,7 @@ sourceSets {
 apply plugin: 'kotlin'
 apply plugin: 'org.jetbrains.intellij'
 
-version "${version}.$buildNumber"
+version "${version}"
 
 intellij {
     version ideaVersion
@@ -42,13 +42,29 @@ intellij {
     downloadSources Boolean.valueOf(downloadSources)
 
     pluginName name
-    plugins = ['JavaScriptLanguage', 'CSS']
-    sandboxDirectory = project.rootDir.canonicalPath + "/.sandbox"
+    plugins = [
+            'JavaScriptLanguage',
+            'CSS',
+            'JavaScriptDebugger'
+    ]
+
+    prepareSandbox {
+        copy {
+            from System.getProperty("user.home")+'/.IdeaIC2018.2/config/plugins/'
+            into './build/idea-sandbox/plugins/'
+        }
+    }
 
     patchPluginXml {
-        sinceBuild null
+        sinceBuild '183.4284.148'
         untilBuild null
     }
+}
+
+publishPlugin {
+    token "${intellijPublishToken}"
+    username "${intellijPublishUsername}"
+    password "${intellijPublishPassword}"
 }
 
 repositories {
@@ -58,3 +74,8 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
+
+//wrapper {
+//    gradleVersion = '4.10'
+//    distributionType = Wrapper.DistributionType.ALL
+//}

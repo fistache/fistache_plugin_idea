@@ -1,4 +1,4 @@
-package seafood.component.parse
+package seafood.component.lang
 
 import com.intellij.lang.HtmlScriptContentProvider
 import com.intellij.lang.Language
@@ -8,23 +8,33 @@ interface SeafoodHandledLexer {
     /**
      * <script> tag
      */
+    fun seenScript(): Boolean
+    fun setSeenScript()
+    fun setSeenScriptType()
     fun getScriptTagContentProvider(): HtmlScriptContentProvider? = TypeScriptContentProvider()
+
+    /**
+     * <template> tag
+     */
+    fun seenTemplate(): Boolean
+    fun setSeenTemplate(template: Boolean)
+    fun getScriptType(): String?
 
     /**
      * <style> tag
      */
-    fun hasSeenStyleTag(): Boolean
-    // "lang" attribute
-    fun hasSeenStyleTagLangAttribute()
-    fun getStyleTagLangAttributeValue(): String?
-    fun getStyleTagLanguage(default: Language?): Language? = SeafoodHandledLexer.getStyleTagLanguage(default, getStyleTagLangAttributeValue())
+    fun seenStyle(): Boolean
+    fun setSeenStyleType()
+    fun getStyleType(): String?
+    fun getStyleTagLanguage(default: Language?): Language? = SeafoodHandledLexer.getStyleTagLanguage(default, getStyleType())
 
-    /**
-     * <script>, <template> and <style> tags
-     */
-    fun hasSeenAnyTag(): Boolean
-    fun setSeenAnyTag(tag: Boolean)
-    fun isInTagState(): Boolean
+    fun seenTag(): Boolean
+    fun setSeenTag(tag: Boolean)
+    fun inTagState(): Boolean
+    fun seenAttribute(): Boolean
+    fun setSeenAttribute(attribute: Boolean)
+    fun seenAttributeExpression(): Boolean
+    fun setSeenAttributeExpression(value: Boolean)
 
     companion object {
         fun getStyleTagLanguage(default: Language?, style: String?): Language? {

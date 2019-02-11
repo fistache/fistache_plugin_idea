@@ -1,8 +1,8 @@
 <idea-plugin>
-    <name>Seafood framework</name>
-    <id>seafood.framework.id</id>
+    <name>Fistache framework</name>
+    <id>fistache.framework.id</id>
     <version>1.0.0</version>
-    <description>Seafood framework support.</description>
+    <description>Fistache framework support.</description>
     <vendor email="aliaksandr.parfiankou@gmail.com">Aliaksandr Parfiankou</vendor>
     <category>Custom Languages</category>
 
@@ -10,27 +10,27 @@
     <depends>com.intellij.modules.lang</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <css.embeddedCssProvider implementation="seafood.component.codeInsight.SeafoodEmbeddedCssProvider"/>
-        <css.inclusionContext implementation="seafood.component.codeInsight.SeafoodCssInclusionContext"/>
+        <css.embeddedCssProvider implementation="fistache.component.codeInsight.FistacheEmbeddedCssProvider"/>
+        <css.inclusionContext implementation="fistache.component.codeInsight.FistacheCssInclusionContext"/>
 
-        <fileTypeFactory implementation="seafood.component.SeafoodFileTypeFactory" />
-        <lang.parserDefinition language="Seafood" implementationClass="seafood.component.lang.SeafoodParserDefinition" />
-        <lang.parserDefinition language="SeafoodInjection" implementationClass="seafood.component.lang.SeafoodInjectionParserDefinition" />
-        <lang.syntaxHighlighterFactory language="Seafood" implementationClass="seafood.component.lang.SeafoodSyntaxHighlighterFactory" />
+        <fileTypeFactory implementation="fistache.component.FistacheFileTypeFactory" />
+        <lang.parserDefinition language="Fistache" implementationClass="fistache.component.lang.FistacheParserDefinition" />
+        <lang.parserDefinition language="FistacheInjection" implementationClass="fistache.component.lang.FistacheInjectionParserDefinition" />
+        <lang.syntaxHighlighterFactory language="Fistache" implementationClass="fistache.component.lang.FistacheSyntaxHighlighterFactory" />
 
-        <stubElementTypeHolder class="seafood.component.lang.SeafoodElementTypes" />
-        <typedHandler implementation="seafood.component.codeInsight.SeafoodInjectionBracesInterpolationTypedHandler"/>
-        <lang.braceMatcher language="SeafoodInjection" implementationClass="com.intellij.lang.javascript.highlighting.JSBraceMatcher"/>
-        <psi.referenceContributor language="Seafood" implementation="seafood.component.codeInsight.SeafoodReferenceContributor"/>
+        <stubElementTypeHolder class="fistache.component.lang.FistacheElementTypes" />
+        <typedHandler implementation="fistache.component.codeInsight.FistacheInjectionBracesInterpolationTypedHandler"/>
+        <lang.braceMatcher language="FistacheInjection" implementationClass="com.intellij.lang.javascript.highlighting.JSBraceMatcher"/>
+        <psi.referenceContributor language="Fistache" implementation="fistache.component.codeInsight.FistacheReferenceContributor"/>
 
-        <multiHostInjector implementation="seafood.component.lang.SeafoodInjector" id="seafood"/>
+        <multiHostInjector implementation="fistache.component.lang.FistacheInjector" id="fistache"/>
     </extensions>
     <extensions defaultExtensionNs="JavaScript">
-        <elementScopeProvider implementation="seafood.component.SeafoodElementResolveScopeProvider" />
-        <indexedFileTypeProvider implementation="seafood.component.SeafoodIndexedFileTypeProvider"/>
-        <!--<inheritedLanguagesConfigurableProvider language="SeafoodInjection"-->
-                                                <!--implementationClass="seafood.component.langeafoodInjectionLanguageConfigurableProvider"/>-->
-        <dialectSpecificHandlersFactory language="SeafoodInjection" implementationClass="seafood.component.lang.SeafoodInjectionSpecificHandlersFactory"/>
-        <tsImportResolver implementation="seafood.component.dependencies.SeafoodTypeScriptImportsResolverProvider" order="first"/>
+        <elementScopeProvider implementation="fistache.component.FistacheElementResolveScopeProvider" />
+        <indexedFileTypeProvider implementation="fistache.component.FistacheIndexedFileTypeProvider"/>
+        <!--<inheritedLanguagesConfigurableProvider language="FistacheInjection"-->
+                                                <!--implementationClass="fistache.component.langeafoodInjectionLanguageConfigurableProvider"/>-->
+        <dialectSpecificHandlersFactory language="FistacheInjection" implementationClass="fistache.component.lang.FistacheInjectionSpecificHandlersFactory"/>
+        <tsImportResolver implementation="fistache.component.dependencies.FistacheTypeScriptImportsResolverProvider" order="first"/>
     </extensions>
 </idea-plugin>

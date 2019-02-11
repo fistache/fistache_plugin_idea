@@ -1,2 +1,2 @@
-# Seafood framework plugin
+# Fistache framework plugin
 

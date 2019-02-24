@@ -7,7 +7,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.lang.typescript.tsconfig.TypeScriptImportsResolverProvider
 import fistache.component.index.hasFistache
 
-const val fistacheExtension = ".fistache"
+const val fistacheExtension = ".ft"
 val defaultExtensionsWithDot = arrayOf(fistacheExtension)
 
 class FistacheTypeScriptImportsResolverProvider : TypeScriptImportsResolverProvider {

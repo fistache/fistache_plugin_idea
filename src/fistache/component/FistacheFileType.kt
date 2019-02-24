@@ -6,7 +6,7 @@ import javax.swing.Icon
 class FistacheFileType : LanguageFileType(FistacheLanguage.INSTANCE) {
     companion object {
         val INSTANCE: FistacheFileType = FistacheFileType()
-        const val DEFAULT_EXTENSION = "ft"
+        const val DEFAULT_EXTENSION = "fistache"
     }
 
     override fun getName(): String {

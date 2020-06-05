@@ -2,6 +2,7 @@ package fistache.component.lang
 
 import com.intellij.lang.HtmlScriptContentProvider
 import com.intellij.lang.Language
+import com.intellij.lang.css.CSSLanguage
 import com.intellij.lexer.*
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.TokenSet
@@ -43,7 +44,7 @@ class FistacheLexer : HtmlLexer(MergingLexerAdapter(FlexAdapter(fistache.compone
     override fun seenStyle(): Boolean = seenStyle
     override fun setSeenStyleType() { seenStylesheetType = true }
     override fun getStyleType(): String? = styleType
-    override fun getStyleLanguage(): Language? = getStyleTagLanguage(HtmlLexer.ourDefaultStyleLanguage) ?: super.getStyleLanguage()
+    override fun getStyleLanguage(): Language? = getStyleTagLanguage(CSSLanguage.INSTANCE) ?: super.getStyleLanguage()
 
     /**
      * <script>, <template> and <style> tags
